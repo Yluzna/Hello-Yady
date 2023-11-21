@@ -1,0 +1,20 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+p{
+    font-size: 2rem;
+}
+
+button {
+    padding: 7px;
+    borde: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: greenyellow;
+}
+
+    

@@ -18,3 +18,15 @@ console.log(" voy a comprar " + miListaDeCompras [2][1] + " unidades de " + miLi
 console.log(" voy a comprar " + miListaDeCompras [3][1] + " unidades de " + miListaDeCompras [3][0]+ ".");
 //refresco
 console.log(" voy a comprar " + miListaDeCompras [4][1] + " unidades de " + miListaDeCompras [4][0]+ ".");
+
+function mostrarMensaje() {
+    console.log ("¡hola, mundo!");
+}
+function mostrarMensaje();
+function mostrarMensaje();
+function mostrarMensaje();
+function mostrarMensaje();
+
+function concatenarTresCadenas(cadena1, cadena2, cadena3) { console.log (cadena1 + ""+ cadena 2+ ""+ cadena3)}
+concatenarTresCadenas("Estoy", "aprendiendo", "a programar");
+
