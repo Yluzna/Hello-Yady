@@ -1,4 +1,4 @@
 const nombre = document.querySelector(".nombre");
-function CambiarColor() {
-    nombre.style.color = "blue";
+function CambiarColor(color) {
+    nombre.style.color = color;
 }
