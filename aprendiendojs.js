@@ -35,11 +35,11 @@ concatenarTresCadenas("Estoy", "aprendiendo", "a programar");
 let Greeting ="¡feliz cumpleaños pepita!"
 console.log(Greeting)
 
-let fruits ["mango", "pera", ""];
+let fruits ["mango", "pera", "manzana"];
 
-let filteredGreetings = Greetings.filter(salut =>{
+let filteredfruits = fruits.filter(salut =>{
     return salut == "Happy birthday Pepita"
-    console.log(filteredGreetings)
+    console.log(filteresfruits)
 }
 //R1 
 
