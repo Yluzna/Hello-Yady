@@ -1,3 +1,4 @@
+//prompt ("dime tu nombre")
 console.log('Hola mundo')
 let nombre = 'Viviana'
 console.log(nombre)
@@ -30,3 +31,73 @@ function mostrarMensaje();
 function concatenarTresCadenas(cadena1, cadena2, cadena3) { console.log (cadena1 + ""+ cadena 2+ ""+ cadena3)}
 concatenarTresCadenas("Estoy", "aprendiendo", "a programar");
 
+//R 1 
+let Greeting ="¡feliz cumpleaños pepita!"
+console.log(Greeting)
+
+let fruits ["mango", "pera", "manzana"];
+
+let filteredfruits = fruits.filter(salut =>{
+    return salut == "Happy birthday Pepita"
+    console.log(filteresfruits)
+}
+//R1 
+
+function felicitarCumpleaños(idioma) {
+    switch (idioma.toLowerCase()) {
+        case 'español':
+            return '¡feliz cumpleaños pepita! 🎉🥳🎂';
+        case 'inglés':
+            return 'Happy birthday! Pepita 🎉🥳🎂';
+        case 'alemán':
+            return 'Alles Gute zum Geburtstag, Pepita! 🎉🥳🎂';
+        default:
+            return '🎉🎈🍰 ¡Feliz día! 🍰🎈🎉';
+    }
+}
+
+
+console.log(felicitarCumpleaños('español'));
+console.log(felicitarCumpleaños('inglés'));
+console.log(felicitarCumpleaños('alemán'));
+console.log(felicitarCumpleaños('francés'));
+
+
+
+
+ // R 2
+function rollDice(){
+    return Math.floor(Math.random () * 6) +1;
+}
+var total = rollDice();
+console.log (total);
+
+
+// R 3
+
+function tablaMultiplicar(numero){
+    for(let i = 1; i <= 10; i++) {
+       let resultado = numero * i;
+       console.log (numero + " x " + i)
+  }
+}
+
+tablaMultiplicar(4)
+
+//R4
+const sleepsheep = [true, true, true, false, true, true, true, true, true, false, true, false, true, false, false, true, true, true, true, true, false, false, true, false];
+
+function contarOvejas(sheepArray) {
+    let contador = 0;
+
+    for (let i = 0; i < sheepArray.length; i++) {
+        if (sheepArray[i] === true) {
+            contador++;
+        }
+    }
+
+    return contador;
+}
+
+const cantidadOvejasDormidas = contarOvejas(sleepsheep);
+console.log("Cantidad de ovejas dormidas: " + cantidadOvejasDormidas);

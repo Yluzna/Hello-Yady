@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ruleta Rusa de patos</title>
+  <style>
+    /* Estilos para la ruleta */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(https://media.istockphoto.com/id/1446929530/es/foto/peque%C3%B1o-pato-de-goma-amarillo-fresco-con-gafas-de-sol-negras-copie-el-espacio-a-la-derecha-s%C3%A9.jpg?s=1024x1024&w=is&k=20&c=3RuT8lniaJJn1_AqrkLUxqC8GQv5w14ubgBy94Y5Ses=);
+      background background-repeat: no-repeat;
+      background-size: cover;
+      
+    }
+
+    #container {
+      text-align: center;
+    }
+
+    .wheel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 2px solid #333;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .participant {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Ruleta Rusa de Patos</h1>
+    <p id="resultado">¡Presiona el botón para seleccionar un nombre!</p>
+    <div class="wheel" id="wheel"></div>
+    <button onclick="seleccionarParticipante()">Vamos a JUGAR</button>
+    <button onclick="reiniciarRuleta()">Reiniciar</button>
+    <br><br>
+    <label for="nombreNuevo">Agregar nombre:</label>
+    <input type="text" id="nombreNuevo">
+    <button onclick="agregarParticipante()">Agregar</button>
+    <br><br>
+    <label for="nombreEliminar">Eliminar nombre:</label>
+    <select id="nombreEliminar"></select>
+    <button onclick="eliminarParticipante()">Eliminar</button>
+  </div>
+
+  <script>
+    let listaDeParticipantes = [
+      "Roxana", "Yesenia", "Jose", "Viviana", "Anzuly",
+     
+      
+    ];
+    let participantesEliminados = [];
+    let angulos = {};
+
+    function crearParticipantes() {
+      const wheel = document.getElementById('wheel');
+      wheel.innerHTML = '';
+
+      const paso = 360 / listaDeParticipantes.length;
+      listaDeParticipantes.forEach((nombre, index) => {
+        const participant = document.createElement('div');
+        participant.className = 'participant';
+        participant.textContent = nombre;
+        participant.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        participant.style.transform = `rotate(${paso * index}deg) translate(150px) rotate(-${paso * index}deg)`;
+        participant.onclick = function() {
+          eliminarParticipanteSeleccionado(nombre);
+        };
+        wheel.appendChild(participant);
+        angulos[nombre] = paso * index;
+      });
+    }
+    crearParticipantes();
+
+    function seleccionarParticipante() {
+      if (listaDeParticipantes.length === 0) {
+        alert("¡Todos los participantes han jugado!");
+        return;
+      }
+
+      const indiceGanador = Math.floor(Math.random() * listaDeParticipantes.length);
+      const ganador = listaDeParticipantes.splice(indiceGanador, 1)[0];
+      participantesEliminados.push(ganador);
+      
+      document.getElementById('resultado').innerText = "El participante GANADOR es: " + ganador;
+      alert("¡El participante ganador es: " + ganador + "!");
+    }
+
+    function reiniciarRuleta() {
+      listaDeParticipantes = participantesEliminados.concat(listaDeParticipantes);
+      participantesEliminados = [];
+      document.getElementById('resultado').innerText = "¡Presiona el botón para seleccionar un nombre!";
+      crearParticipantes();
+    }
+
+    function agregarParticipante() {
+      const nombreNuevo = document.getElementById('nombreNuevo').value.trim();
+      if (nombreNuevo !== "") {
+        listaDeParticipantes.push(nombreNuevo);
+        document.getElementById('nombreNuevo').value = "";
+        actualizarSelectEliminar();
+        crearParticipantes();
+      }
+    }
+
+    function eliminarParticipante() {
+      const indice = document.getElementById('nombreEliminar').selectedIndex;
+      if (indice !== -1) {
+        const participanteEliminado = listaDeParticipantes.splice(indice, 1)[0];
+        actualizarSelectEliminar();
+        reiniciarRuleta();
+        alert("¡Se ha eliminado al participante: " + participanteEliminado + "!");
+      }
+    }
+
+    function eliminarParticipanteSeleccionado(nombre) {
+      const index = listaDeParticipantes.indexOf(nombre);
+      if (index !== -1) {
+        listaDeParticipantes.splice(index, 1);
+        participantesEliminados.push(nombre);
+        crearParticipantes();
+      }
+    }
+
+    function actualizarSelectEliminar() {
+      const selectEliminar = document.getElementById('nombreEliminar');
+      selectEliminar.innerHTML = "";
+      listaDeParticipantes.forEach((nombre, index) => {
+        const option = document.createElement('option');
+        option.text = nombre;
+        option.value = index;
+        selectEliminar.add(option);
+      });
+    }
+  </script>
+</body>
+</html>
