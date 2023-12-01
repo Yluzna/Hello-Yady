@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/button-color.html"
+    "livePreview.defaultPreviewPath": "/button-color.html",
+    "liveServer.settings.port": 5501
 }
