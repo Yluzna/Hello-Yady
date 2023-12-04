@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Juego de Ruleta</title>
+  <link rel="stylesheet" type="text/css" href="formulario.css">
+</head>
+<body>
+
+<div id="contenedor-principal">
+
+    <nav> 
+        
+        <ul>
+                <li><a class="btn1" href="#Inicio"><p>Inicio</p></a></li>
+        </ul>
+          
+    </nav>
+    <section id="page-1" >
+        
+            <img class="duck1" src="ima/patos2.png" alt="patos" width="">
+    
+    <form id="formulario">
+        <label for="nombre"></label>
+        <input type="text" id="nombre" required>
+        <button type="submit" onclick="agregarParticipante(event)" class="btn2">Añadir</button>
+    </form>
+    
+    <ul id="listaParticipantes">
+        <!-- Aquí se mostrarán los participantes -->
+    </ul>
+    <button onclick="seleccionarParticipante()" class="btn3">Juguemos</button>
+
+    <img class="duck2" src="ima/patos1.png" alt="patos" width="">
+
+    <script src="formulario.js"></script>
+    </section>
+
+
+</div>
+
+</body>
+</html>
