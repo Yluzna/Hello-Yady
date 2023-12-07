@@ -3,36 +3,50 @@
 <head>
   <title>Juego de Ruleta</title>
   <link rel="stylesheet" type="text/css" href="formulario.css">
+  <link href='http://fonts.googleapis.com/css?family=Inter' rel='stylesheet' type='text/css'>
 </head>
 <body>
+    <div class="star" style="top: 10%; left: 5%;"></div>
+    <div class="star" style="top: 20%; left: 90%;"></div>
+    <div class="star" style="top: 80%; left: 10%;"></div>
+    <div class="star" style="top: 50%; left: 70%;"></div>
+    <div class="star" style="top: 30%; left: 10%;"></div>
+    <div class="star" style="top: 90%; left: 100%;"></div>
+    <div class="star" style="top: 100%; left: 10%;"></div>
+    <div class="star" style="top: 70%; left: 90%;"></div>
+    <div class="star" style="top: 90%; left: 30%;"></div>
+    <div class="star" style="top: 100%; left: 90%;"></div>
 
-<div id="contenedor-principal">
-
-    <nav> 
-        
-        <ul>
-                <li><a class="btn1" href="#Inicio"><p>Inicio</p></a></li>
-        </ul>
-          
-    </nav>
-    <section id="page-1" >
-        
-            <img class="duck1" src="ima/patos2.png" alt="patos" width="">
+    <div id="contenedor-principal">
     
-    <form id="formulario">
-        <label for="nombre"></label>
-        <input type="text" id="nombre" required>
-        <button type="submit" onclick="agregarParticipante(event)" class="btn2">Añadir</button>
-    </form>
+        <nav> 
+            
+            <ul>
+                    <li><a class="btn1" href="start.html"><p>Inicio</p></a></li>
+            </ul>
+              
+        </nav>
+        <section id="page-2" >
+            
+                <img class="duck1" src="ima/patos2.png" alt="patos" width="">
+        
+            <form id="formulario">
+            <label for="nombre"></label>
+            <input placeholder="Nuevo participante" type="text" id="nombre" required>
+            <button type="submit" onclick="agregarParticipante(event)" class="btn2">Añadir</button>
+             </form>
+        
+          <ul id="listaParticipantes">
+            <!-- Aquí se mostrarán los participantes -->
+          </ul>
+         <button onclick="seleccionarParticipante()" class="btn3">Juguemos</button>
     
-    <ul id="listaParticipantes">
-        <!-- Aquí se mostrarán los participantes -->
-    </ul>
-    <button onclick="seleccionarParticipante()" class="btn3">Juguemos</button>
-
-    <img class="duck2" src="ima/patos1.png" alt="patos" width="">
-
+         <img class="duck2" src="ima/patos1.png"patos" width="">
+    
+         
+    
     <script src="formulario.js"></script>
+
     </section>
 
 
